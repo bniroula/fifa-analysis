@@ -1,0 +1,7 @@
+date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
+2018-06-14,Russia,Saudi Arabia,5,0,FIFA World Cup,Moscow,Russia,FALSE
+2018-06-15,Egypt,Uruguay,0,1,FIFA World Cup,Ekaterinburg,Russia,TRUE
+2018-07-01,Russia,Spain,1,1,FIFA World Cup,Moscow,Russia,FALSE
+2010-06-11,South Africa,Mexico,1,1,FIFA World Cup,Johannesburg,South Africa,FALSE
+2017-10-07,Germany,Azerbaijan,5,1,FIFA World Cup qualification,Kaiserslautern,Germany,FALSE
+1990-06-08,Argentina,Cameroon,0,1,FIFA World Cup,Milan,Italy,TRUE
