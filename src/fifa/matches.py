@@ -34,15 +34,14 @@ OUTPUT_COLUMNS: tuple[str, ...] = (
     "date",
     "year",
     "stage",
-    "home_team",
-    "away_team",
-    "home_score",
-    "away_score",
+    "team_a",
+    "team_b",
+    "team_a_score",
+    "team_b_score",
     "outcome",
     "winner",
     "decided_by_shootout",
     "is_host_match",
-    "neutral",
     "city",
     "country",
 )
@@ -50,8 +49,8 @@ OUTPUT_COLUMNS: tuple[str, ...] = (
 STAGE_GROUP = "group"
 STAGE_KNOCKOUT = "knockout"
 
-OUTCOME_HOME = "home_win"
-OUTCOME_AWAY = "away_win"
+OUTCOME_TEAM_A = "team_a_win"
+OUTCOME_TEAM_B = "team_b_win"
 OUTCOME_DRAW = "draw"
 
 
@@ -82,12 +81,12 @@ def wc_matches(
     wc = _label_stage(wc)
     wc = _resolve_winner(wc, shootouts)
     wc["is_host_match"] = wc.apply(
-        lambda r: (r["home_team"] in config.hosts_for(int(r["year"])))
-        or (r["away_team"] in config.hosts_for(int(r["year"]))),
+        lambda r: (r["team_a"] in config.hosts_for(int(r["year"])))
+        or (r["team_b"] in config.hosts_for(int(r["year"]))),
         axis=1,
     )
 
-    wc = wc.sort_values(["date", "home_team", "away_team"]).reset_index(drop=True)
+    wc = wc.sort_values(["date", "team_a", "team_b"]).reset_index(drop=True)
     return wc[list(OUTPUT_COLUMNS)]
 
 
@@ -98,7 +97,7 @@ def _label_stage(wc: pd.DataFrame) -> pd.DataFrame:
     for year, group in wc.groupby("year"):
         tournament = config.BY_YEAR[int(year)]
         # Stable chronological order; ties broken by teams for determinism.
-        ordered = group.sort_values(["date", "home_team", "away_team"]).index
+        ordered = group.sort_values(["date", "team_a", "team_b"]).index
         n_knockout = tournament.knockout_matches
         knockout_idx = ordered[-n_knockout:]
         wc.loc[ordered, "stage"] = STAGE_GROUP
@@ -110,27 +109,27 @@ def _resolve_winner(wc: pd.DataFrame, shootouts: pd.DataFrame) -> pd.DataFrame:
     """Add `outcome`, `winner`, and `decided_by_shootout`.
 
     Decisive matches: winner is the higher-scoring side. Tied matches: if a
-    shootout entry exists for (date, home_team, away_team), the shootout winner
+    shootout entry exists for (date, team_a, team_b), the shootout winner
     advances and is recorded as the winner (decided_by_shootout=True); otherwise
     it is a true draw (winner is NA).
     """
     wc = wc.copy()
 
-    home = wc["home_score"]
-    away = wc["away_score"]
+    a = wc["team_a_score"]
+    b = wc["team_b_score"]
     wc["outcome"] = OUTCOME_DRAW
-    wc.loc[home > away, "outcome"] = OUTCOME_HOME
-    wc.loc[away > home, "outcome"] = OUTCOME_AWAY
+    wc.loc[a > b, "outcome"] = OUTCOME_TEAM_A
+    wc.loc[b > a, "outcome"] = OUTCOME_TEAM_B
 
-    shootout_lookup = shootouts[["date", "home_team", "away_team", "winner"]].rename(
+    shootout_lookup = shootouts[["date", "team_a", "team_b", "winner"]].rename(
         columns={"winner": "shootout_winner"}
     )
-    wc = wc.merge(shootout_lookup, on=["date", "home_team", "away_team"], how="left")
+    wc = wc.merge(shootout_lookup, on=["date", "team_a", "team_b"], how="left")
 
     wc["decided_by_shootout"] = False
     wc["winner"] = pd.Series(pd.NA, index=wc.index, dtype="string")
-    wc.loc[wc["outcome"] == OUTCOME_HOME, "winner"] = wc["home_team"]
-    wc.loc[wc["outcome"] == OUTCOME_AWAY, "winner"] = wc["away_team"]
+    wc.loc[wc["outcome"] == OUTCOME_TEAM_A, "winner"] = wc["team_a"]
+    wc.loc[wc["outcome"] == OUTCOME_TEAM_B, "winner"] = wc["team_b"]
 
     tied_with_shootout = (wc["outcome"] == OUTCOME_DRAW) & wc["shootout_winner"].notna()
     wc.loc[tied_with_shootout, "winner"] = wc.loc[tied_with_shootout, "shootout_winner"]

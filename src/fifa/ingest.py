@@ -19,22 +19,31 @@ from fifa import config
 # drift in a re-download surfaces immediately instead of silently later.
 RESULTS_COLUMNS: tuple[str, ...] = (
     "date",
-    "home_team",
-    "away_team",
-    "home_score",
-    "away_score",
+    "team_a",
+    "team_b",
+    "team_a_score",
+    "team_b_score",
     "tournament",
     "city",
     "country",
-    "neutral",
 )
 SHOOTOUTS_COLUMNS: tuple[str, ...] = (
     "date",
-    "home_team",
-    "away_team",
+    "team_a",
+    "team_b",
     "winner",
     "first_shooter",
 )
+
+# Raw home/away column names in the source CSVs, mapped to our side-neutral
+# canonical names. World Cup matches are almost all at neutral venues, so
+# "home/away" is just bookkeeping -- team_a/team_b avoids implying an advantage.
+_TEAM_RENAME: dict[str, str] = {
+    "home_team": "team_a",
+    "away_team": "team_b",
+    "home_score": "team_a_score",
+    "away_score": "team_b_score",
+}
 FORMER_NAMES_COLUMNS: tuple[str, ...] = (
     "current",
     "former",
@@ -81,16 +90,18 @@ def load_results(path: Path | None = None) -> pd.DataFrame:
     """Load results.csv.
 
     Returns all international matches (not just World Cup). `date` is parsed to
-    datetime; `neutral` is coerced to a real boolean; scores are nullable ints.
+    datetime; scores are nullable ints.
     """
     path = path or config.RESULTS_CSV
     _require(path)
     df = pd.read_csv(path, dtype={"home_team": "string", "away_team": "string"})
+    # Rename raw home/away columns to side-neutral canonical names.
+    df = df.rename(columns=_TEAM_RENAME)
     _validate_columns(df, RESULTS_COLUMNS, path.name)
+    df = df[list(RESULTS_COLUMNS)]
     df["date"] = pd.to_datetime(df["date"], errors="raise")
-    df["neutral"] = _to_bool(df["neutral"])
-    df["home_score"] = pd.to_numeric(df["home_score"], errors="coerce").astype("Int64")
-    df["away_score"] = pd.to_numeric(df["away_score"], errors="coerce").astype("Int64")
+    df["team_a_score"] = pd.to_numeric(df["team_a_score"], errors="coerce").astype("Int64")
+    df["team_b_score"] = pd.to_numeric(df["team_b_score"], errors="coerce").astype("Int64")
     for col in ("tournament", "city", "country"):
         df[col] = df[col].astype("string")
     return df
@@ -109,6 +120,8 @@ def load_shootouts(path: Path | None = None) -> pd.DataFrame:
             "first_shooter": "string",
         },
     )
+    # Rename raw home/away columns to side-neutral canonical names.
+    df = df.rename(columns=_TEAM_RENAME)
     _validate_columns(df, SHOOTOUTS_COLUMNS, path.name)
     df["date"] = pd.to_datetime(df["date"], errors="raise")
     return df
@@ -168,21 +181,3 @@ def load_rankings_json(path: Path, date: str) -> pd.DataFrame:
     })
 
     return rankings_df
-
-def _to_bool(series: pd.Series) -> pd.Series:
-    """Coerce the results `neutral` column to a clean boolean.
-
-    The raw file stores TRUE/FALSE strings; pandas may read them as strings or
-    booleans depending on version, so normalize explicitly.
-    """
-    if series.dtype == bool:
-        return series
-    mapping = {
-        "TRUE": True,
-        "FALSE": False,
-        "True": True,
-        "False": False,
-        "true": True,
-        "false": False,
-    }
-    return series.map(lambda v: mapping.get(str(v).strip(), False)).astype(bool)
