@@ -110,8 +110,9 @@ def _resolve_winner(wc: pd.DataFrame, shootouts: pd.DataFrame) -> pd.DataFrame:
 
     Decisive matches: winner is the higher-scoring side. Tied matches: if a
     shootout entry exists for (date, team_a, team_b), the shootout winner
-    advances and is recorded as the winner (decided_by_shootout=True); otherwise
-    it is a true draw (winner is NA).
+    advances and is recorded as the winner (decided_by_shootout=True), and
+    `outcome` reflects that advancing side rather than staying `draw`; otherwise
+    it is a true draw (winner is NA, outcome is `draw`).
     """
     wc = wc.copy()
 
@@ -134,6 +135,10 @@ def _resolve_winner(wc: pd.DataFrame, shootouts: pd.DataFrame) -> pd.DataFrame:
     tied_with_shootout = (wc["outcome"] == OUTCOME_DRAW) & wc["shootout_winner"].notna()
     wc.loc[tied_with_shootout, "winner"] = wc.loc[tied_with_shootout, "shootout_winner"]
     wc.loc[tied_with_shootout, "decided_by_shootout"] = True
+    # Reflect the shootout result in `outcome` too: a tie the higher scorer didn't
+    # win outright is decided by who advanced on penalties.
+    wc.loc[tied_with_shootout & (wc["shootout_winner"] == wc["team_a"]), "outcome"] = OUTCOME_TEAM_A
+    wc.loc[tied_with_shootout & (wc["shootout_winner"] == wc["team_b"]), "outcome"] = OUTCOME_TEAM_B
 
     return wc.drop(columns=["shootout_winner"])
 
