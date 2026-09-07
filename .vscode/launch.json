@@ -2,10 +2,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Python Debugger: Debug scratch.py",
+      "name": "Python Debugger: Debug current file",
       "type": "debugpy",
       "request": "launch",
-      "program": "${workspaceFolder}/scratch.py",
+      "program": "${file}",
       "console": "integratedTerminal",
       "cwd": "${workspaceFolder}",
       "justMyCode": false
