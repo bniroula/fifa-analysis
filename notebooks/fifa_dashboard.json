@@ -1,0 +1,898 @@
+{
+  "meta": {
+    "matches": 600,
+    "scope": "World Cup 1994-2026, matches with a pre-tournament rank",
+    "generated": "2026-09-05"
+  },
+  "overall": {
+    "winRate": 58.3,
+    "ceiling": 81.7,
+    "coinFlip": 50,
+    "wins": 350,
+    "draws": 110
+  },
+  "byTournament": [
+    {
+      "year": "1994",
+      "winRate": 59.6,
+      "drawRate": 15.4,
+      "matches": 52
+    },
+    {
+      "year": "1998",
+      "winRate": 50.0,
+      "drawRate": 25.0,
+      "matches": 60
+    },
+    {
+      "year": "2002",
+      "winRate": 53.1,
+      "drawRate": 21.9,
+      "matches": 64
+    },
+    {
+      "year": "2006",
+      "winRate": 50.0,
+      "drawRate": 17.2,
+      "matches": 64
+    },
+    {
+      "year": "2010",
+      "winRate": 57.8,
+      "drawRate": 21.9,
+      "matches": 64
+    },
+    {
+      "year": "2014",
+      "winRate": 68.8,
+      "drawRate": 14.1,
+      "matches": 64
+    },
+    {
+      "year": "2018",
+      "winRate": 53.1,
+      "drawRate": 14.1,
+      "matches": 64
+    },
+    {
+      "year": "2022",
+      "winRate": 60.9,
+      "drawRate": 15.6,
+      "matches": 64
+    },
+    {
+      "year": "2026",
+      "winRate": 66.3,
+      "drawRate": 19.2,
+      "matches": 104
+    }
+  ],
+  "byStage": [
+    {
+      "stage": "group",
+      "winRate": 53.7,
+      "matches": 441
+    },
+    {
+      "stage": "knockout",
+      "winRate": 71.1,
+      "matches": 159
+    }
+  ],
+  "byRankGap": [
+    {
+      "bucket": "0-3",
+      "winRate": 52.9,
+      "ciLow": 41.2,
+      "ciHigh": 64.3,
+      "matches": 68
+    },
+    {
+      "bucket": "3-6",
+      "winRate": 47.7,
+      "ciLow": 36.0,
+      "ciHigh": 59.6,
+      "matches": 65
+    },
+    {
+      "bucket": "6-10",
+      "winRate": 53.7,
+      "ciLow": 42.9,
+      "ciHigh": 64.0,
+      "matches": 82
+    },
+    {
+      "bucket": "10-15",
+      "winRate": 50.7,
+      "ciLow": 39.5,
+      "ciHigh": 61.8,
+      "matches": 73
+    },
+    {
+      "bucket": "15-20",
+      "winRate": 55.6,
+      "ciLow": 44.1,
+      "ciHigh": 66.5,
+      "matches": 72
+    },
+    {
+      "bucket": "20-30",
+      "winRate": 69.0,
+      "ciLow": 59.4,
+      "ciHigh": 77.2,
+      "matches": 100
+    },
+    {
+      "bucket": "30-50",
+      "winRate": 66.3,
+      "ciLow": 56.8,
+      "ciHigh": 74.7,
+      "matches": 104
+    },
+    {
+      "bucket": "50-100",
+      "winRate": 64.7,
+      "ciLow": 47.9,
+      "ciHigh": 78.5,
+      "matches": 34
+    },
+    {
+      "bucket": "100-300",
+      "winRate": 100.0,
+      "ciLow": 34.2,
+      "ciHigh": 100.0,
+      "matches": 2
+    }
+  ],
+  "thresholdSweep": [
+    {
+      "x": 0,
+      "winRate": 58.3
+    },
+    {
+      "x": 1,
+      "winRate": 58.3
+    },
+    {
+      "x": 2,
+      "winRate": 58.0
+    },
+    {
+      "x": 3,
+      "winRate": 58.0
+    },
+    {
+      "x": 4,
+      "winRate": 58.0
+    },
+    {
+      "x": 5,
+      "winRate": 58.2
+    },
+    {
+      "x": 6,
+      "winRate": 58.2
+    },
+    {
+      "x": 7,
+      "winRate": 57.9
+    },
+    {
+      "x": 8,
+      "winRate": 58.2
+    },
+    {
+      "x": 9,
+      "winRate": 58.1
+    },
+    {
+      "x": 10,
+      "winRate": 57.8
+    },
+    {
+      "x": 11,
+      "winRate": 57.8
+    },
+    {
+      "x": 12,
+      "winRate": 57.6
+    },
+    {
+      "x": 13,
+      "winRate": 57.8
+    },
+    {
+      "x": 14,
+      "winRate": 57.8
+    },
+    {
+      "x": 15,
+      "winRate": 57.7
+    },
+    {
+      "x": 16,
+      "winRate": 57.0
+    },
+    {
+      "x": 17,
+      "winRate": 57.2
+    },
+    {
+      "x": 18,
+      "winRate": 57.2
+    },
+    {
+      "x": 19,
+      "winRate": 57.6
+    },
+    {
+      "x": 20,
+      "winRate": 57.0
+    },
+    {
+      "x": 21,
+      "winRate": 57.0
+    },
+    {
+      "x": 22,
+      "winRate": 57.2
+    },
+    {
+      "x": 23,
+      "winRate": 56.5
+    },
+    {
+      "x": 24,
+      "winRate": 56.2
+    },
+    {
+      "x": 25,
+      "winRate": 56.3
+    },
+    {
+      "x": 26,
+      "winRate": 55.9
+    },
+    {
+      "x": 27,
+      "winRate": 55.4
+    },
+    {
+      "x": 28,
+      "winRate": 55.0
+    },
+    {
+      "x": 29,
+      "winRate": 54.2
+    },
+    {
+      "x": 30,
+      "winRate": 53.8
+    },
+    {
+      "x": 31,
+      "winRate": 54.0
+    },
+    {
+      "x": 32,
+      "winRate": 53.8
+    },
+    {
+      "x": 33,
+      "winRate": 53.6
+    },
+    {
+      "x": 34,
+      "winRate": 54.0
+    },
+    {
+      "x": 35,
+      "winRate": 53.6
+    },
+    {
+      "x": 36,
+      "winRate": 53.3
+    },
+    {
+      "x": 37,
+      "winRate": 53.1
+    },
+    {
+      "x": 38,
+      "winRate": 52.7
+    },
+    {
+      "x": 39,
+      "winRate": 52.6
+    },
+    {
+      "x": 40,
+      "winRate": 52.3
+    },
+    {
+      "x": 41,
+      "winRate": 52.2
+    },
+    {
+      "x": 42,
+      "winRate": 51.8
+    },
+    {
+      "x": 43,
+      "winRate": 51.7
+    },
+    {
+      "x": 44,
+      "winRate": 51.8
+    },
+    {
+      "x": 45,
+      "winRate": 51.7
+    },
+    {
+      "x": 46,
+      "winRate": 51.7
+    },
+    {
+      "x": 47,
+      "winRate": 51.3
+    },
+    {
+      "x": 48,
+      "winRate": 51.2
+    },
+    {
+      "x": 49,
+      "winRate": 51.2
+    },
+    {
+      "x": 50,
+      "winRate": 51.0
+    },
+    {
+      "x": 51,
+      "winRate": 51.1
+    },
+    {
+      "x": 52,
+      "winRate": 50.9
+    },
+    {
+      "x": 53,
+      "winRate": 50.7
+    },
+    {
+      "x": 54,
+      "winRate": 50.6
+    },
+    {
+      "x": 55,
+      "winRate": 50.6
+    },
+    {
+      "x": 56,
+      "winRate": 50.5
+    },
+    {
+      "x": 57,
+      "winRate": 50.5
+    },
+    {
+      "x": 58,
+      "winRate": 50.4
+    },
+    {
+      "x": 59,
+      "winRate": 50.5
+    },
+    {
+      "x": 60,
+      "winRate": 50.5
+    },
+    {
+      "x": 61,
+      "winRate": 50.4
+    },
+    {
+      "x": 62,
+      "winRate": 50.2
+    },
+    {
+      "x": 63,
+      "winRate": 50.2
+    },
+    {
+      "x": 64,
+      "winRate": 50.2
+    },
+    {
+      "x": 65,
+      "winRate": 50.4
+    },
+    {
+      "x": 66,
+      "winRate": 50.4
+    },
+    {
+      "x": 67,
+      "winRate": 50.3
+    },
+    {
+      "x": 68,
+      "winRate": 50.3
+    },
+    {
+      "x": 69,
+      "winRate": 50.4
+    },
+    {
+      "x": 70,
+      "winRate": 50.4
+    },
+    {
+      "x": 71,
+      "winRate": 50.4
+    },
+    {
+      "x": 72,
+      "winRate": 50.3
+    },
+    {
+      "x": 73,
+      "winRate": 50.4
+    },
+    {
+      "x": 74,
+      "winRate": 50.5
+    },
+    {
+      "x": 75,
+      "winRate": 50.5
+    },
+    {
+      "x": 76,
+      "winRate": 50.3
+    },
+    {
+      "x": 77,
+      "winRate": 50.2
+    },
+    {
+      "x": 78,
+      "winRate": 50.2
+    },
+    {
+      "x": 79,
+      "winRate": 50.2
+    },
+    {
+      "x": 80,
+      "winRate": 50.2
+    },
+    {
+      "x": 81,
+      "winRate": 50.2
+    },
+    {
+      "x": 82,
+      "winRate": 50.2
+    },
+    {
+      "x": 83,
+      "winRate": 50.2
+    },
+    {
+      "x": 84,
+      "winRate": 50.2
+    },
+    {
+      "x": 85,
+      "winRate": 50.2
+    },
+    {
+      "x": 86,
+      "winRate": 50.2
+    },
+    {
+      "x": 87,
+      "winRate": 50.2
+    },
+    {
+      "x": 88,
+      "winRate": 50.2
+    },
+    {
+      "x": 89,
+      "winRate": 50.2
+    },
+    {
+      "x": 90,
+      "winRate": 50.2
+    },
+    {
+      "x": 91,
+      "winRate": 50.2
+    },
+    {
+      "x": 92,
+      "winRate": 50.2
+    },
+    {
+      "x": 93,
+      "winRate": 50.2
+    },
+    {
+      "x": 94,
+      "winRate": 50.2
+    },
+    {
+      "x": 95,
+      "winRate": 50.2
+    },
+    {
+      "x": 96,
+      "winRate": 50.2
+    },
+    {
+      "x": 97,
+      "winRate": 50.2
+    },
+    {
+      "x": 98,
+      "winRate": 50.2
+    },
+    {
+      "x": 99,
+      "winRate": 50.2
+    },
+    {
+      "x": 100,
+      "winRate": 50.2
+    },
+    {
+      "x": 101,
+      "winRate": 50.2
+    },
+    {
+      "x": 102,
+      "winRate": 50.1
+    },
+    {
+      "x": 103,
+      "winRate": 50.1
+    },
+    {
+      "x": 104,
+      "winRate": 50.0
+    }
+  ],
+  "hostEffect": [
+    {
+      "type": "Non-host match",
+      "winRate": 58.0,
+      "matches": 538
+    },
+    {
+      "type": "Host match",
+      "winRate": 61.3,
+      "matches": 62
+    }
+  ],
+  "semifinalists": [
+    {
+      "year": "1994",
+      "topFourInSemis": 2,
+      "allFour": false,
+      "topFour": [
+        "Germany",
+        "Netherlands",
+        "Brazil",
+        "Italy"
+      ],
+      "semifinalists": [
+        "Brazil",
+        "Bulgaria",
+        "Italy",
+        "Sweden"
+      ]
+    },
+    {
+      "year": "1998",
+      "topFourInSemis": 1,
+      "allFour": false,
+      "topFour": [
+        "Brazil",
+        "Germany",
+        "Mexico",
+        "England"
+      ],
+      "semifinalists": [
+        "Brazil",
+        "Croatia",
+        "France",
+        "Netherlands"
+      ]
+    },
+    {
+      "year": "2002",
+      "topFourInSemis": 1,
+      "allFour": false,
+      "topFour": [
+        "France",
+        "Brazil",
+        "Argentina",
+        "Portugal"
+      ],
+      "semifinalists": [
+        "Brazil",
+        "Germany",
+        "South Korea",
+        "Turkey"
+      ]
+    },
+    {
+      "year": "2006",
+      "topFourInSemis": 0,
+      "allFour": false,
+      "topFour": [
+        "Brazil",
+        "Czech Republic",
+        "Netherlands",
+        "Mexico"
+      ],
+      "semifinalists": [
+        "France",
+        "Germany",
+        "Italy",
+        "Portugal"
+      ]
+    },
+    {
+      "year": "2010",
+      "topFourInSemis": 2,
+      "allFour": false,
+      "topFour": [
+        "Brazil",
+        "Spain",
+        "Portugal",
+        "Netherlands"
+      ],
+      "semifinalists": [
+        "Germany",
+        "Netherlands",
+        "Spain",
+        "Uruguay"
+      ]
+    },
+    {
+      "year": "2014",
+      "topFourInSemis": 2,
+      "allFour": false,
+      "topFour": [
+        "Spain",
+        "Germany",
+        "Brazil",
+        "Portugal"
+      ],
+      "semifinalists": [
+        "Argentina",
+        "Brazil",
+        "Germany",
+        "Netherlands"
+      ]
+    },
+    {
+      "year": "2018",
+      "topFourInSemis": 1,
+      "allFour": false,
+      "topFour": [
+        "Germany",
+        "Brazil",
+        "Belgium",
+        "Portugal"
+      ],
+      "semifinalists": [
+        "Belgium",
+        "Croatia",
+        "England",
+        "France"
+      ]
+    },
+    {
+      "year": "2022",
+      "topFourInSemis": 2,
+      "allFour": false,
+      "topFour": [
+        "Brazil",
+        "Belgium",
+        "Argentina",
+        "France"
+      ],
+      "semifinalists": [
+        "Argentina",
+        "Croatia",
+        "France",
+        "Morocco"
+      ]
+    },
+    {
+      "year": "2026",
+      "topFourInSemis": 4,
+      "allFour": true,
+      "topFour": [
+        "Argentina",
+        "Spain",
+        "France",
+        "England"
+      ],
+      "semifinalists": [
+        "Argentina",
+        "England",
+        "France",
+        "Spain"
+      ]
+    }
+  ],
+  "biggestUpsets": [
+    {
+      "match": "South Africa (83) beat France (9)",
+      "winner": "South Africa",
+      "loser": "France",
+      "gap": 74,
+      "year": 2010,
+      "stage": "group"
+    },
+    {
+      "match": "Russia (70) beat Spain (10)",
+      "winner": "Russia",
+      "loser": "Spain",
+      "gap": 60,
+      "year": 2018,
+      "stage": "knockout"
+    },
+    {
+      "match": "Nigeria (74) beat Spain (15)",
+      "winner": "Nigeria",
+      "loser": "Spain",
+      "gap": 59,
+      "year": 1998,
+      "stage": "group"
+    },
+    {
+      "match": "South Korea (57) beat Germany (1)",
+      "winner": "South Korea",
+      "loser": "Germany",
+      "gap": 56,
+      "year": 2018,
+      "stage": "group"
+    },
+    {
+      "match": "Saudi Arabia (51) beat Argentina (3)",
+      "winner": "Saudi Arabia",
+      "loser": "Argentina",
+      "gap": 48,
+      "year": 2022,
+      "stage": "group"
+    },
+    {
+      "match": "Ghana (48) beat Czech Republic (2)",
+      "winner": "Ghana",
+      "loser": "Czech Republic",
+      "gap": 46,
+      "year": 2006,
+      "stage": "group"
+    },
+    {
+      "match": "Japan (61) beat Colombia (16)",
+      "winner": "Japan",
+      "loser": "Colombia",
+      "gap": 45,
+      "year": 2018,
+      "stage": "group"
+    },
+    {
+      "match": "Ghana (48) beat United States (5)",
+      "winner": "Ghana",
+      "loser": "United States",
+      "gap": 43,
+      "year": 2006,
+      "stage": "group"
+    },
+    {
+      "match": "Cameroon (43) beat Brazil (1)",
+      "winner": "Cameroon",
+      "loser": "Brazil",
+      "gap": 42,
+      "year": 2022,
+      "stage": "group"
+    },
+    {
+      "match": "Senegal (42) beat France (1)",
+      "winner": "Senegal",
+      "loser": "France",
+      "gap": 41,
+      "year": 2002,
+      "stage": "group"
+    },
+    {
+      "match": "Nigeria (74) beat Bulgaria (35)",
+      "winner": "Nigeria",
+      "loser": "Bulgaria",
+      "gap": 39,
+      "year": 1998,
+      "stage": "group"
+    },
+    {
+      "match": "Ghana (73) beat Panama (34)",
+      "winner": "Ghana",
+      "loser": "Panama",
+      "gap": 39,
+      "year": 2026,
+      "stage": "group"
+    },
+    {
+      "match": "South Korea (40) beat Portugal (5)",
+      "winner": "South Korea",
+      "loser": "Portugal",
+      "gap": 35,
+      "year": 2002,
+      "stage": "group"
+    },
+    {
+      "match": "South Africa (60) beat South Korea (25)",
+      "winner": "South Africa",
+      "loser": "South Korea",
+      "gap": 35,
+      "year": 2026,
+      "stage": "group"
+    },
+    {
+      "match": "South Korea (47) beat Greece (13)",
+      "winner": "South Korea",
+      "loser": "Greece",
+      "gap": 34,
+      "year": 2010,
+      "stage": "group"
+    },
+    {
+      "match": "South Korea (40) beat Italy (6)",
+      "winner": "South Korea",
+      "loser": "Italy",
+      "gap": 34,
+      "year": 2002,
+      "stage": "knockout"
+    },
+    {
+      "match": "Ghana (61) beat South Korea (28)",
+      "winner": "Ghana",
+      "loser": "South Korea",
+      "gap": 33,
+      "year": 2022,
+      "stage": "group"
+    },
+    {
+      "match": "South Korea (40) beat Spain (8)",
+      "winner": "South Korea",
+      "loser": "Spain",
+      "gap": 32,
+      "year": 2002,
+      "stage": "knockout"
+    },
+    {
+      "match": "Iran (42) beat United States (11)",
+      "winner": "Iran",
+      "loser": "United States",
+      "gap": 31,
+      "year": 1998,
+      "stage": "group"
+    },
+    {
+      "match": "Paraguay (41) beat Germany (10)",
+      "winner": "Paraguay",
+      "loser": "Germany",
+      "gap": 31,
+      "year": 2026,
+      "stage": "knockout"
+    }
+  ]
+}
