@@ -31,3 +31,62 @@ Raw data is downloaded into `data/raw/` and is not hand-edited. The loaders in `
 - **Matches / shootouts / former names** — Kaggle: martj42, "International football results from 1872 to present". Filtered to `tournament == "FIFA World Cup"`.
 - **Rankings 1993–2018** — Kaggle `fifa_ranking.csv` (weekly snapshots).
 - **Rankings 2022 & 2026** — FIFA ranking JSON exports (`data/raw/2022-rankings.json`, `2026-rankings.json`), since those tournaments aren't covered by the Kaggle CSV.
+
+### Data sources and terms
+
+The datasets in `data/raw/` are third-party and carry their own licenses and terms — this repo's MIT license covers only the code. Please consult each source before reusing the data:
+
+- **Matches, shootouts, former names** — the martj42 "International football results from 1872 to present" dataset on Kaggle. Refer to that dataset's page for its license and attribution requirements.
+- **FIFA ranking history (1993–2018)** — a FIFA-rankings dataset on Kaggle (`fifa_ranking.csv`).
+- **2022 & 2026 ranking snapshots** — pre-tournament FIFA rankings sourced from FIFA.com.
+
+> Data note: the 2026 tournament figures are included as loaded from the source and should be verified against official results before being cited.
+
+## Setup
+
+Requires Python 3.12+ and [uv](https://docs.astral.sh/uv/).
+
+```bash
+uv sync        # create the virtualenv and install dependencies
+uv run fifa    # smoke test: prints the in-scope tournaments
+```
+
+## Running the analysis
+
+The analysis lives in `notebooks/cleanup.ipynb`. Run it end to end:
+
+```bash
+uv run jupyter nbconvert --to notebook --execute --inplace notebooks/cleanup.ipynb
+# or explore interactively:
+uv run jupyter lab
+```
+
+It produces:
+
+- `notebooks/wc_ranking_stats.xlsx` — every summary table (overall win rate, per-tournament, group vs. knockout, rank-gap buckets with confidence intervals, threshold sweep, host effect, biggest upsets, semi-finalist alignment) plus the full match-level table, with a Definitions sheet.
+- `notebooks/fifa_dashboard.json` — the same aggregates in a compact shape for a web dashboard.
+- `notebooks/figures/*.png` — the charts below.
+
+## Results at a glance
+
+Across 600 ranked World Cup matches (1994–2026), always backing the higher-ranked team wins about **58%** of the time — against an **~82% ceiling** (draws count as losses, so a perfect predictor still couldn't reach 100%). The signal is strongest in knockouts and at large ranking gaps, and close to a coin flip for tightly matched teams.
+
+![Win rate by ranking gap](notebooks/figures/04_win_rate_by_rank_gap.png)
+
+![Semi-finalist alignment](notebooks/figures/06_semifinalist_alignment.png)
+
+## Caveats
+
+- **Small samples.** Nine tournaments, ~600 matches; each rank-gap bucket has far fewer, so confidence intervals are wide. Any "optimal gap" reading needs its interval, not a point estimate.
+- **2018 methodology change.** FIFA changed how rankings are computed in August 2018, so a rank gap pre- and post-2018 aren't perfectly comparable. Treated as a documented caveat, not a regime split.
+- **Draws cap the ceiling.** With draws as losses and a ~18% draw rate, the strategy tops out near 82%, not 100%. Compare win rates to that ceiling.
+- **Host bias.** Hosts tend to over-perform their ranking, so host matches are a known adverse subset.
+
+## Project docs
+
+- [`docs/PROJECT.md`](docs/PROJECT.md) — full brief, locked methodology, and the honest list of complications.
+- `CLAUDE.md` — steering notes used while building this with an AI assistant.
+
+## License
+
+Code is released under the [MIT License](LICENSE). Third-party data under `data/raw/` is subject to its own terms — see "Data sources and terms" above.

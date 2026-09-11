@@ -1,8 +1,10 @@
 [project]
 name = "fifa"
 version = "0.1.0"
-description = "Add your description here"
+description = "Empirical study of how well pre-tournament FIFA rankings predict World Cup match outcomes."
 readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
 authors = [
     { name = "Bishal Niroula", email = "bishalniroula1@outlook.com" }
 ]

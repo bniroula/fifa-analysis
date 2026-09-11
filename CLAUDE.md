@@ -20,16 +20,15 @@ None currently — proceed to implementation.
 
 ## Repo layout
 ```
-data/raw/         # gitignored — downloaded source data, never edited by hand
-data/processed/   # cleaned, joined tables produced by src/ scripts
-notebooks/        # exploratory analysis, one .ipynb per question
-src/              # reusable Python modules (loaders, joiners, strategy simulator)
-tests/            # unit tests for src/
-docs/             # project brief, methodology notes, decision log
+data/raw/         # source CSV/JSON data (committed; see README "Data sources and terms")
+data/processed/   # reserved for cleaned/joined outputs
+notebooks/        # analysis notebook + generated figures and exports
+src/fifa/         # reusable modules: config, loaders (ingest), match assembly
+docs/             # project brief and methodology notes
 ```
 
 ## Working style
 - Python + Jupyter for exploration; reusable logic goes in `src/` with tests.
-- Raw data is downloaded via a script, never committed. Processed data may be committed if small.
+- Raw source data lives in `data/raw/` (committed). See the README's "Data sources and terms" section for provenance and licensing.
 - Every analytical claim in a notebook must be traceable to a cell that produces it — no hand-typed numbers in markdown.
 - Don't fabricate or hand-encode historical facts (rankings, results, the 2026 semi-finalists claim). Load them from data.
