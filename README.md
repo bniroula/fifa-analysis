@@ -16,8 +16,6 @@ Three questions drive the analysis:
 2. **Semi-finalist alignment** — for each tournament, how many of the four top-ranked teams actually reached the semi-finals? Is 2026 really the first 4-of-4?
 3. **Ranking-gap sensitivity** — as you sweep a threshold over the rank gap between two teams, where does betting the favorite stop beating a coin flip? That crossover is the "noise floor" of the ranking signal.
 
-Full brief, locked methodology, and the honest list of complications live in [`docs/PROJECT.md`](docs/PROJECT.md).
-
 ## Approach in brief
 
 - **Scope:** World Cup tournament matches only (1994–2026, ~604 matches). No qualifiers, friendlies, or confederation tournaments.
@@ -83,11 +81,6 @@ Across 600 ranked World Cup matches (1994–2026), always backing the higher-ran
 - **2018 methodology change.** FIFA changed how rankings are computed in August 2018, so a rank gap pre- and post-2018 aren't perfectly comparable. Treated as a documented caveat, not a regime split.
 - **Draws cap the ceiling.** With draws as losses and a ~18% draw rate, the strategy tops out near 82%, not 100%. Compare win rates to that ceiling.
 - **Host bias.** Hosts tend to over-perform their ranking, so host matches are a known adverse subset.
-
-## Project docs
-
-- [`docs/PROJECT.md`](docs/PROJECT.md) — full brief, locked methodology, and the honest list of complications.
-- `CLAUDE.md` — steering notes used while building this with an AI assistant.
 
 ## License
 
