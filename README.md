@@ -4,6 +4,8 @@ Do pre-tournament FIFA rankings actually predict who wins World Cup matches — 
 
 This repo is an empirical study of that question. It builds a clean, reproducible dataset of every World Cup match paired with each team's FIFA ranking as of the release right before that tournament, then measures how well "always bet the higher-ranked team" would have done.
 
+**🔗 Live interactive dashboard: [bishal.xyz/fifa-analysis](https://bishal.xyz/fifa-analysis)**
+
 ## The motivating question
 
 The 2026 World Cup was claimed to be the first tournament where the four highest-ranked teams entering the tournament all reached the semi-finals. If rankings were a strong predictor, that alignment would be unremarkable — so why would it be a first? That tension is the starting point. The 2026 claim is treated as something to verify from data, not a premise.
